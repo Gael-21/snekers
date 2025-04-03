@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Sneakers</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+        }
+        header {
+            background: #b30000;
+            padding: 15px;
+        }
+        .menu {
+            padding: 20px;
+        }
+        .menu ul {
+            list-style: none;
+            padding: 0;
+        }
+        .menu li {
+            background: #333;
+            margin: 10px;
+            padding: 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .menu li:hover {
+            background: #ff3333;
+        }
+        .sneakers {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+        }
+        .sneaker-item {
+            width: 200px;
+            background: #222;
+            padding: 10px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .sneakers img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        footer {
+            background: #1a1a1a;
+            padding: 20px;
+            border-top: 5px solid #b30000;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Catálogo de Sneakers</h1>
+    </header>
+    
+    <section class="menu">
+        <h2>Menú</h2>
+        <ul>
+            <li onclick="mostrarCatalogo('deportivos')">Sneakers Deportivos</li>
+            <li onclick="mostrarCatalogo('urbanos')">Sneakers Urbanos</li>
+            <li onclick="mostrarCatalogo('especiales')">Ediciones Especiales</li>
+            <li><a href="index.html" style="color: white;">Volver a Inicio</a></li>
+        </ul>
+    </section>
+    
+    <section id="catalogo" class="sneakers">
+        <p>Selecciona una categoría para ver los sneakers.</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Sneaker Deals - Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        function mostrarCatalogo(tipo) {
+            let catalogo = document.getElementById("catalogo");
+            let contenido = "";
+
+            if (tipo === "deportivos") {
+                contenido = `
+                    <div class="sneaker-item">
+                        <img src="assets/imagenes/sneakers deportivos 1.jpg" alt="Sneaker Deportivo 1">
+                        <p>Modelo X - $120</p>
+                    </div>
+                    <div class="sneaker-item">
+                        <img src="assets/imagenes/sneakers deportivos 2.jpg" alt="Sneaker Deportivo 2">
+                        <p>Modelo Y - $140</p>
+                    </div>
+                `;
+            } else if (tipo === "urbanos") {
+                contenido = `
+                    <div class="sneaker-item">
+                        <img src="assets/imagenes/sneakers urbanos 1.jpg" alt="Sneaker Urbano 1">
+                        <p>Modelo A - $110</p>
+                    </div>
+                    <div class="sneaker-item">
+                        <img src="assets/imagenes/sneakers urbanos 2.jpg" alt="Sneaker Urbano 2">
+                        <p>Modelo B - $130</p>
+                    </div>
+                `;
+            } else if (tipo === "especiales") {
+                contenido = `
+                    <div class="sneaker-item">
+                        <img src="assets/imagenes/sneakers especiales 1.jpg" alt="Sneaker Especial 1">
+                        <p>Edición Limitada Z - $200</p>
+                    </div>
+                    <div class="sneaker-item">
+                        <img src="assets/imagenes/sneakers especiales 2.jpg" alt="Sneaker Especial 2">
+                        <p>Edición Premium - $250</p>
+                    </div>
+                `;
+            }
+
+            catalogo.innerHTML = contenido;
+        }
+    </script>
+</body>
+</html>
